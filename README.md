@@ -1,13 +1,15 @@
 # atlas_scientific
 Atlas Scientific EZO pH and EC circuit I2C CLI tools
 
-Developed originally for Raspberry Pi. Works at least with version 1.6 firmware (you can get the version with the 'info' command).
+Developed originally for Raspberry Pi. Works at least with version 1.6 firmware (you can get the version with the 'info' command). Output of the commands is intended to be machine (eg. shell script) readable.
 
 Build using 'make'. You might need to install libraries like libi2c-dev if it doesn't build.
 
 Make sure you have set the chip up in I2C mode; UART is the default. See the Atlas Scientific PDF for how to do this.
 
 The I2C device should be /dev/i2c-0 or /dev/i2c-1 depending on your Raspberry Pi revision.
+
+These commands exit with status 0 if everything went OK.
 
 Usege:
 
