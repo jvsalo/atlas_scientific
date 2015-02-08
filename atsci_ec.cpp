@@ -134,6 +134,10 @@ int do_read(std::vector<std::string>& args, int dev, float *out) {
 
 	if(out) *out = EC;
 	else std::cout << EC << std::endl;
+
+	// Sleep out the electrical interference caused by the measurement
+	usleep(1500000);
+
 	return 0;
 }
 
@@ -392,7 +396,7 @@ int do_cal(const std::vector<std::string>& args, int dev) {
                 if(write_string("Cal,clear", dev) != 0)
                         return 1;
 
-                usleep(350000); // Sleep min 300 milliseconds
+                usleep(500000); // Sleep min 300 milliseconds
 
                 return read_string(result, dev);
 	}
@@ -403,7 +407,7 @@ int do_cal(const std::vector<std::string>& args, int dev) {
 		if(write_string("Cal,dry", dev) != 0)
 			return 1;
 
-		usleep(1350000); // Sleep min 1.3 seconds
+		usleep(2000000); // Sleep min 1.3 seconds
 
 		return read_string(result, dev);
 	}
@@ -425,7 +429,7 @@ int do_cal(const std::vector<std::string>& args, int dev) {
 	if(write_string(std::string("Cal,") + args[3] + "," + ECstr, dev) != 0)
 		return 1;
 
-	usleep(1350000); // Sleep min 1.3 seconds
+	usleep(2000000); // Sleep min 1.3 seconds
 
 	return read_string(result, dev);
 }
